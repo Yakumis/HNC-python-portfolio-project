@@ -1,5 +1,6 @@
 import random
 
+#PLACEMENT OF GAME ELEMENTS AND POINTS
 field = ["hot", "neutral", "cold", "hot", "neutral", "cold", "hot", "neutral", "cold"]
 cpu = ["hot", "neutral", "cold", "hot", "neutral", "cold", "hot", "neutral", "cold"]
 hand = ["hot", "hot", "hot", "neutral", "neutral", "neutral", "cold", "cold", "cold"]
@@ -7,6 +8,7 @@ hand = ["hot", "hot", "hot", "neutral", "neutral", "neutral", "cold", "cold", "c
 your_points = 0
 cpu_points = 0
 
+#INSTRUCTIONS
 print("""Starting Hand: Both you and the CPU begin with a hand of Hot, Cold, and Neutral cards.
 Each Round:
 Choose a Card: On your turn, pick a card from your hand to play against the CPU’s random card.
@@ -16,6 +18,8 @@ The power of each card is influenced by the combination of your card, the CPU’
 Hot vs. Cold and Cold vs. Hot can earn you points based on the field card’s alignment.
 Playing Neutral cards at the right moment gives a strategic edge—worth 3 points if it counters the field and CPU card!
           """)
+
+#FUNCTIONS OF THE GAME          
 def you_play():
   while True:
     card_to_play = input("Which card will you play? (hot, neutral, cold)\n")
@@ -35,6 +39,7 @@ def field_play():
   field.remove(field_card)
   return field_card
 
+#MAIN GAMEPLAY
 while len(field) != 0:
   print(f"Your hand is: \n{hand}")
   you = you_play()
@@ -71,6 +76,7 @@ while len(field) != 0:
   else:
     print("Nothing happens.\n")
 
+#GAME END
 print(" ----- Final Score ----- ")
 print(f"Your points: {your_points}")
 print(f"Cpu points: {cpu_points}")
